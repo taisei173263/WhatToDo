@@ -1,9 +1,16 @@
-/**
- * @format
- */
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AuthProvider } from './src/store/AuthContext';
+import AppNavigator from './src/navigation/AppNavigator';
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+const App = () => {
+  return (
+    <SafeAreaProvider>
+      <AuthProvider>
+        <AppNavigator />
+      </AuthProvider>
+    </SafeAreaProvider>
+  );
+};
 
-AppRegistry.registerComponent(appName, () => App);
+export default App;
